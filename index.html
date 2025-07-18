@@ -1,9 +1,10 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Kamil Kara, BIM & Architectural Designer. Explore automation tools, Dynamo scripts, smart BIM workflows, and ISO 19650-based project delivery." />
-  <title>Kamil Kara | Portfolio</title>
+  <title>Kamil Kara | Portfolio Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,6 +12,9 @@
       margin: 0;
       background: #fff;
       color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
       background: #f4f4f4;
@@ -20,25 +24,48 @@
     }
     h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2.8em;
       font-weight: 700;
     }
-    p {
+    .tagline {
       margin: 0.2em 0 0;
-      font-size: 1.1em;
+      font-size: 1.3em;
       font-weight: 400;
     }
-    iframe {
-      border: none;
-      width: 100vw;
-      height: calc(100vh - 120px);
+    .main-content {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2em;
+      gap: 2em; /* Space between buttons */
+      flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    }
+    .portfolio-button {
+      background-color: #f4f4f4;
+      color: #222;
+      padding: 1.5em 3em;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      min-width: 250px; /* Ensures buttons have a minimum width */
+    }
+    .portfolio-button:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
     footer {
       background: #f4f4f4;
       text-align: center;
-      padding: 0.5em;
+      padding: 0.8em;
       font-size: 0.9em;
       color: #666;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
     }
     a {
       color: #666;
@@ -47,14 +74,32 @@
     a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .portfolio-button {
+        width: 80%; /* Make buttons wider on smaller screens */
+        padding: 1.2em 2em;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Kamil Kara</h1>
-    <p>BIM & Architectural Designer</p>
-  </header>  <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/60285520b9.html"></iframe>  <footer>
-    &copy; 2025 Kamil Kara · <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> · <a href="https://github.com/kamilkara" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/kamilkara/" target="_blank">LinkedIn</a>
+    <p class="tagline">BIM & Architectural Designer</p>
+  </header>
+
+  <div class="main-content">
+    <a href="bim-portfolio.html" class="portfolio-button">BIM Portfolio</a>
+    <a href="architectural-portfolio.html" class="portfolio-button">3D Portfolio</a>
+    <a href="general-portfolio.html" class="portfolio-button">General Portfolio</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Kamil Kara &middot; <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> &middot; <a href="https://github.com/kamilkara" target="_blank">GitHub</a> &middot; <a href="https://www.linkedin.com/in/kamilkara/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
