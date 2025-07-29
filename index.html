@@ -35,11 +35,11 @@
     .main-content {
       flex-grow: 1;
       display: flex;
+      flex-direction: column; /* Changed to column for vertical stacking */
       justify-content: center;
       align-items: center;
       padding: 2em;
-      gap: 2em; /* Space between buttons */
-      flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+      gap: 1.5em; /* Reduced gap for a tighter stacked look */
     }
     .portfolio-button {
       background-color: #f4f4f4;
@@ -52,7 +52,9 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
-      min-width: 250px; /* Ensures buttons have a minimum width */
+      min-width: 300px; /* Increased min-width for vertical buttons */
+      width: 40%; /* Adjust width to fit content, or use max-width */
+      max-width: 400px; /* Optional: set a max-width for very wide screens */
     }
     .portfolio-button:hover {
       background-color: #e0e0e0;
@@ -77,10 +79,12 @@
 
     @media (max-width: 768px) {
       .main-content {
-        flex-direction: column;
+        padding: 1em; /* Adjust padding for smaller screens */
       }
       .portfolio-button {
-        width: 80%; /* Make buttons wider on smaller screens */
+        width: 90%; /* Make buttons wider on smaller screens */
+        min-width: unset; /* Remove min-width constraint */
+        max-width: unset; /* Remove max-width constraint */
         padding: 1.2em 2em;
       }
     }
@@ -94,12 +98,14 @@
 
   <div class="main-content">
     <a href="bim-portfolio.html" class="portfolio-button">BIM Portfolio</a>
-    <a href="architectural-portfolio.html" class="portfolio-button">3D Portfolio</a>
-    <a href="general-portfolio.html" class="portfolio-button">General Portfolio</a>
+    <a href="architectural-portfolio.html" class="portfolio-button">Architectural Portfolio</a>
+    <a href="residential-portfolio.html" class="portfolio-button">Residential Portfolio</a>
+    <a href="laboratory-portfolio.html" class="portfolio-button">Laboratory Portfolio</a>
+    <a href="automation-tools.html" class="portfolio-button">Automation Tools</a>
   </div>
 
   <footer>
-    &copy; 2025 Kamil Kara &middot; <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> &middot; <a href="https://github.com/karakamil" target="_blank">GitHub</a> &middot; <a href="https://www.linkedin.com/in/kamilkara/" target="_blank">LinkedIn</a>
+    &copy; 2025 Kamil Kara &middot; <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> &middot; <a href="https://github.com/kamilkara" target="_blank">GitHub</a> &middot; <a href="https://www.linkedin.com/in/kamilkara/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
