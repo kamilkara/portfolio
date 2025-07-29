@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Kamil Kara, BIM & Architectural Designer. Explore automation tools, Dynamo scripts, smart BIM workflows, and ISO 19650-based project delivery." />
+  <meta name="description" content="Portfolio of Kamil Kara, BIM & Architectural Designer." />
   <title>Kamil Kara | Portfolio Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -35,11 +35,11 @@
     .main-content {
       flex-grow: 1;
       display: flex;
-      flex-direction: column; /* Changed to column for vertical stacking */
+      flex-direction: column; /* Vertical stacking */
       justify-content: center;
       align-items: center;
       padding: 2em;
-      gap: 1.5em; /* Reduced gap for a tighter stacked look */
+      gap: 1.5em; /* Space between buttons */
     }
     .portfolio-button {
       background-color: #f4f4f4;
@@ -47,7 +47,7 @@
       padding: 1.5em 3em;
       font-size: 1.5em;
       font-weight: 700;
-      text-decoration: none;
+      text-decoration: none; /* For the <a> tag */
       border-radius: 8px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -55,6 +55,9 @@
       min-width: 300px; /* Increased min-width for vertical buttons */
       width: 40%; /* Adjust width to fit content, or use max-width */
       max-width: 400px; /* Optional: set a max-width for very wide screens */
+      display: flex; /* Make the <a> behave like a block/button */
+      justify-content: center;
+      align-items: center;
     }
     .portfolio-button:hover {
       background-color: #e0e0e0;
@@ -79,12 +82,12 @@
 
     @media (max-width: 768px) {
       .main-content {
-        padding: 1em; /* Adjust padding for smaller screens */
+        padding: 1em;
       }
       .portfolio-button {
-        width: 90%; /* Make buttons wider on smaller screens */
-        min-width: unset; /* Remove min-width constraint */
-        max-width: unset; /* Remove max-width constraint */
+        width: 90%;
+        min-width: unset;
+        max-width: unset;
         padding: 1.2em 2em;
       }
     }
@@ -97,15 +100,15 @@
   </header>
 
   <div class="main-content">
-    <a href="bim-portfolio.html" class="portfolio-button">BIM Portfolio</a>
-    <a href="architectural-portfolio.html" class="portfolio-button">Architectural Portfolio</a>
-    <a href="residential-portfolio.html" class="portfolio-button">Residential Portfolio</a>
-    <a href="laboratory-portfolio.html" class="portfolio-button">Laboratory Portfolio</a>
-    <a href="automation-tools.html" class="portfolio-button">Automation Tools</a>
+    <a href="portfolio.html?src=bim-content.html" class="portfolio-button">BIM Portfolio</a>
+    <a href="portfolio.html?src=architectural-content.html" class="portfolio-button">Architectural Portfolio</a>
+    <a href="portfolio.html?src=residential-content.html" class="portfolio-button">Residential Portfolio</a>
+    <a href="portfolio.html?src=laboratory-content.html" class="portfolio-button">Laboratory Portfolio</a>
+    <a href="portfolio.html?src=general-content.html" class="portfolio-button">General Portfolio</a>
   </div>
 
   <footer>
-    &copy; 2025 Kamil Kara &middot; <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> &middot; <a href="https://github.com/kamilkara" target="_blank">GitHub</a> &middot; <a href="https://www.linkedin.com/in/kamilkara/" target="_blank">LinkedIn</a>
+    &copy; 2025 Kamil Kara &middot; <a href="mailto:kk@karakamil.com">kk@karakamil.com</a> &middot; <a href="https://github.com/kamilkara" target="_blank">GitHub</a> &middot; <a href="https://www.linkedin.com/in/karakamil/" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
