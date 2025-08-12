@@ -35,11 +35,12 @@
     .main-content {
       flex-grow: 1;
       display: flex;
-      flex-direction: column; /* Vertical stacking */
-      justify-content: center;
-      align-items: center;
+      flex-wrap: wrap; /* Allows buttons to wrap to the next line */
+      justify-content: center; /* Centers the buttons horizontally */
+      align-items: center; /* Centers the button rows vertically */
       padding: 2em;
-      gap: 1.5em; /* Space between buttons */
+      row-gap: 1.5em; /* Updated to match column-gap */
+      column-gap: 1.5em; /* Horizontal spacing between buttons */
     }
     .portfolio-button {
       background-color: #f4f4f4;
@@ -47,15 +48,13 @@
       padding: 1.5em 3em;
       font-size: 1.5em;
       font-weight: 700;
-      text-decoration: none; /* For the <a> tag */
+      text-decoration: none;
       border-radius: 8px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
-      min-width: 300px; /* Increased min-width for vertical buttons */
-      width: 40%; /* Adjust width to fit content, or use max-width */
-      max-width: 400px; /* Optional: set a max-width for very wide screens */
-      display: flex; /* Make the <a> behave like a block/button */
+      min-width: 250px;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -82,7 +81,8 @@
 
     @media (max-width: 768px) {
       .main-content {
-        padding: 1em;
+        flex-direction: column;
+        row-gap: 1.5em;
       }
       .portfolio-button {
         width: 90%;
@@ -105,7 +105,8 @@
     <a href="portfolio.html?src=residential-content.html" class="portfolio-button">Residential Portfolio</a>
     <a href="portfolio.html?src=laboratory-content.html" class="portfolio-button">Laboratory Portfolio</a>
     <a href="portfolio.html?src=general-content.html" class="portfolio-button">General Portfolio</a>
-    <a href="portfolio.html?src=video-content.html" class="portfolio-button">3D Video Output</a>
+    <a href="portfolio.html?src=3d-video-output-content.html" class="portfolio-button">3D Video Output</a>
+    <a href="portfolio.html?src=certifications-content.html" class="portfolio-button">Certifications</a>
   </div>
 
   <footer>
