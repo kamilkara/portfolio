@@ -27,17 +27,20 @@
             position: relative;
             max-width: 800px;
             width: 100%;
+            height: 60vh; /* Set a fixed height relative to the viewport */
             margin-top: 2em;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .carousel-slide {
             display: none;
             width: 100%;
+            height: 100%; /* Make slide take up full container height */
             animation: fadeIn 0.5s;
         }
         .carousel-slide img {
             width: 100%;
-            height: auto;
+            height: 100%; /* Make image take up full slide height */
+            object-fit: contain; /* Scales the image to fit without cropping */
             border-radius: 8px;
         }
         .carousel-slide.active {
@@ -74,11 +77,9 @@
         let slides = [];
         const carouselContainer = document.getElementById('carouselContainer');
         
-        // Fetch the list of images from the JSON file
         fetch('certifications/images.json')
             .then(response => response.json())
             .then(imageFilenames => {
-                // Dynamically create the carousel slides
                 imageFilenames.forEach((filename, index) => {
                     const slideDiv = document.createElement('div');
                     slideDiv.className = 'carousel-slide';
@@ -92,13 +93,11 @@
                     carouselContainer.appendChild(slideDiv);
                 });
 
-                // Get the slides and show the first one
                 slides = document.getElementsByClassName("carousel-slide");
                 if (slides.length > 0) {
                     showSlides(slideIndex);
                 }
 
-                // Add navigation buttons
                 if (slides.length > 1) {
                     const prevBtn = document.createElement('button');
                     prevBtn.className = 'carousel-btn prev';
