@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A[I]rchitecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 2em;
+            text-align: center;
+            background: #f9f9f9;
+            color: #333;
+        }
+        h2 {
+            font-size: 2em;
+            color: #222;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin-top: 2em;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h2>A[I]rchitecture</h2>
+    <div class="gallery-container" id="galleryContainer">
+        </div>
+
+    <script>
+        const galleryContainer = document.getElementById('galleryContainer');
+        
+        // Fetch the list of images from the JSON file
+        fetch('ai-rchitecture/images.json')
+            .then(response => response.json())
+            .then(imageFilenames => {
+                imageFilenames.forEach(filename => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = 'ai-rchitecture/' + filename;
+                    img.alt = 'AI-generated architectural image';
+                    galleryItem.appendChild(img);
+                    galleryContainer.appendChild(galleryItem);
+                });
+            })
+            .catch(error => console.error('Error loading images:', error));
+    </script>
+</body>
+</html>

@@ -66,19 +66,54 @@
 </head>
 <body>
     <h2>Certifications</h2>
-    <div class="carousel-container">
-        <div class="carousel-slide active"><img src="certifications/cert1.png" alt="Certification 1"></div>
-        <div class="carousel-slide"><img src="certifications/cert2.png" alt="Certification 2"></div>
-        <div class="carousel-slide"><img src="certifications/cert3.png" alt="Certification 3"></div>
-        <div class="carousel-slide"><img src="certifications/cert4.png" alt="Certification 3"></div>
-
-        <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
-    </div>
+    <div class="carousel-container" id="carouselContainer">
+        </div>
 
     <script>
         let slideIndex = 0;
-        showSlides(slideIndex);
+        let slides = [];
+        const carouselContainer = document.getElementById('carouselContainer');
+        
+        // Fetch the list of images from the JSON file
+        fetch('certifications/images.json')
+            .then(response => response.json())
+            .then(imageFilenames => {
+                // Dynamically create the carousel slides
+                imageFilenames.forEach((filename, index) => {
+                    const slideDiv = document.createElement('div');
+                    slideDiv.className = 'carousel-slide';
+                    if (index === 0) {
+                        slideDiv.classList.add('active');
+                    }
+                    const img = document.createElement('img');
+                    img.src = 'certifications/' + filename;
+                    img.alt = 'Certification ' + (index + 1);
+                    slideDiv.appendChild(img);
+                    carouselContainer.appendChild(slideDiv);
+                });
+
+                // Get the slides and show the first one
+                slides = document.getElementsByClassName("carousel-slide");
+                if (slides.length > 0) {
+                    showSlides(slideIndex);
+                }
+
+                // Add navigation buttons
+                if (slides.length > 1) {
+                    const prevBtn = document.createElement('button');
+                    prevBtn.className = 'carousel-btn prev';
+                    prevBtn.innerHTML = '&#10094;';
+                    prevBtn.onclick = () => changeSlide(-1);
+                    carouselContainer.appendChild(prevBtn);
+
+                    const nextBtn = document.createElement('button');
+                    nextBtn.className = 'carousel-btn next';
+                    nextBtn.innerHTML = '&#10095;';
+                    nextBtn.onclick = () => changeSlide(1);
+                    carouselContainer.appendChild(nextBtn);
+                }
+            })
+            .catch(error => console.error('Error loading images:', error));
 
         function changeSlide(n) {
             showSlides(slideIndex += n);
@@ -86,7 +121,6 @@
 
         function showSlides(n) {
             let i;
-            let slides = document.getElementsByClassName("carousel-slide");
             if (n >= slides.length) { slideIndex = 0; }    
             if (n < 0) { slideIndex = slides.length - 1; }
             for (i = 0; i < slides.length; i++) {
@@ -96,6 +130,4 @@
         }
     </script>
 </body>
-
 </html>
-
